@@ -1,0 +1,24 @@
+package collections;
+
+import java.util.*;
+
+public class Interfaces {
+	
+	public static void main(String[] args) {
+		
+	ArrayList<String> list=new ArrayList<>();
+	list.add("Hello" + " Everyone");
+	list.add("I" + " Am" + " Intern");
+	list.add("At" + " 1Rivet");
+	
+	System.out.println(list);
+	
+	Iterator<String> it=list.iterator();
+	while(it.hasNext()) {
+		
+		System.out.println("iterator" + it.next());
+	}
+		
+	}
+
+}

@@ -1,0 +1,65 @@
+package collections;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+
+public class ComparabletorArrayList {
+	
+	
+	 public class Laptop 
+	 {
+		 private String Name;
+		 private String Brand;
+		 private int Price;
+		 
+		  
+		public Laptop(String name, String brand, int price) {
+			super();
+			Name = name;
+			Brand = brand;
+			Price = price;
+		}
+		
+		public String getName() {
+			return Name;
+		}
+		public void setName(String name) {
+			Name = name;
+		}
+		public String getBrand() {
+			return Brand;
+		}
+		public void setBrand(String brand) {
+			Brand = brand;
+		}
+		public int getPrice() {
+			return Price;
+		}
+		public void setPrice(int price) {
+			Price = price;
+		}
+		@Override
+		public String toString() {
+			return "Laptop [Name=" + Name + ", Brand=" + Brand + ", Price=" + Price + "]";
+		}
+		 
+	 }
+
+	public static void main(String[] args) {
+		
+		ArrayList<Integer> sorts= new ArrayList<>();
+		
+		sorts.add(23);
+		sorts.add(56);
+		sorts.add(1);
+		sorts.add(9);
+		sorts.add(32);
+		sorts.add(21);
+		
+		System.out.println("The ArrayList are: " +sorts);
+		
+		Collections.sort();
+	}
+	
+} 

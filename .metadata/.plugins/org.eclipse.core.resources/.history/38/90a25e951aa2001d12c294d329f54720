@@ -1,0 +1,22 @@
+package collections;
+
+import java.util.*;
+
+public class Interfaces {
+	
+	public static void main(String[] args) {
+		
+	ArrayList<String> list=new ArrayList<>();
+	list.add("Hello");
+	list.add("Everyone");
+	list.add("I");
+	list.add("Am");
+	list.add("Intern");
+	list.add("At");
+	list.add("1Rivet");
+	
+	System.out.println(list);
+		
+	}
+
+}

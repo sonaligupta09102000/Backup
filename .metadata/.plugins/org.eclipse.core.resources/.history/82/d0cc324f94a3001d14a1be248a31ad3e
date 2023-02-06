@@ -1,0 +1,25 @@
+package collections;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class ExistsElementHashSet {
+	
+	public static void main(String[] args) {
+		
+		Set<Integer> set=new HashSet<>();
+		
+		set.add(89);
+		set.add(34);
+		set.add(9);
+		set.add(0);
+		set.add(35);
+		
+		System.out.println("The Total element in HashSet are : " + set);
+		
+		System.out.println("The Total element that was exists in HashSet are: " + set.contains(20));
+	}
+	
+	
+
+}
