@@ -12,7 +12,7 @@ public class ReverseSpecChar {
 	
 	public static void main(String[] args) {  
 		String str="$0n@l! Gupt@ ##";
-		char[] chararr=str.toCharArray();
+		char[] charArr =str.toCharArray();
 		
 		
 	}
