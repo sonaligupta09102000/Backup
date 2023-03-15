@@ -47,9 +47,6 @@ public class DeleteByID extends HttpServlet {
 //		out.print("<tr><td>" +u.getID() + "</td><td>" +u.getName()+"</td><td>" + u.getEmailID()+"</td><td>" + u.getPassword()+"</td></tr>");
 //		out.print("</table>");
 		
-     
-		
-	    
 	    else
 	    {
 	    	out.print("Something Wrong happened!!!.. Try Again!!");

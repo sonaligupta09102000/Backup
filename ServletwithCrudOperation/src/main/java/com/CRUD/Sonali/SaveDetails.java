@@ -62,7 +62,4 @@ public class SaveDetails extends HttpServlet {
 //	    }
 		out.close();
 	}
-	
-	
-
 }

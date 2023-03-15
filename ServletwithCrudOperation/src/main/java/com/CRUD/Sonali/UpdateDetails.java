@@ -26,7 +26,7 @@ public class UpdateDetails extends HttpServlet {
 		 String EmailID=request.getParameter("emailID");
 		 String Password=request.getParameter("Password");
 		 
-		 Users u1=new Users();
+		 Users u1=new Users(); 
 		 u1.setID(id);
 		 u1.setName(Name);
 		 u1.setEmailID(EmailID);

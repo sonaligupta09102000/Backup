@@ -30,11 +30,13 @@ public class RetrieveAllUsers extends HttpServlet {
 		List<Users> getall=SaveDetailsConn.GetAllUsers(null);
 		out.print("<table border='1' width='100%'>");
 		
-		 out.print("<tr> <th> ID</th> <th> Name </th> <th> EmailID </th> <th> Password </th> </tr>");
+		 out.print("<tr> <th> ID</th> <th> Name </th> <th> EmailID </th> <th> Password </th> <th> Edit </th> <th> Delete </th> </tr>");
 		 
 		 for(Users u :getall)
 		 {
-		     out.print("<tr><td>" +u.getID() + "</td><td>" +u.getName()+"</td><td>" + u.getEmailID()+"</td><td>" + u.getPassword()+"</td></tr>");
+		     out.print("<tr><td>" +u.getID() + "</td><td>" +u.getName()+"</td><td>" + u.getEmailID()+"</td><td>" + u.getPassword()+"</td>"
+		     		+ "<td>" + "<a href='UpdateById?iD="+ u.getID()+"'> Edit </a>" +"</td>" + "<td>" +"<a href='DeleteByID?iD="+u.getID()+"'> Delete </a>"+"</tr>");
+		     
 		 }
 		 out.print("</table>");
 		 out.print("</body></html>");
