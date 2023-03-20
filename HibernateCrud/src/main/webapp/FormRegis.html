@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login Form</title>
+</head>
+<body>
+    <form action="AllDetails?action=HibInsert" method="post">
+		<h1>Form Information</h1>
+		
+		<table>
+			<tr>
+				<td>ID</td>
+				<td><input type="text" name="id" required></td>
+			</tr>
+			<tr>
+				<td>Name</td>
+				<td><input type="text" name="name" required></td>
+			</tr>
+			<tr>
+				<td>EmailID</td>
+				<td><input type="text" name="emailId" required></td>
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td><input type="text" name="password" required></td>
+			</tr>
+			<tr>
+				<td><input type="Submit" name="Save"></td>
+			</tr>
+		</table>
+		
+		<a href="AllDetails?action=GetAllUser"> Select All User </a>
+		
+		
+	</form>
+</body>
+</html>
