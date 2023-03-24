@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+        "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+        
+<beans>
+ 
+ <bean class="com.Rivet.Spring.Faculty" name="guide">
+ <property name="id"> <value> 1</value></property>
+ <property name="name"> <value>sonali</value></property>
+ <property name="emailId"> <value>sonali09@gmail.com</value></property>
+ <property name="password"> <value> sonali</value></property>
+ <property name="subject" ref="sb"> </property>
+ <property name="experience" ref="ep"> </property>
+ </bean>
+ 
+ <bean class="com.Rivet.Spring.FacultySubject" name="sb">
+ <property name="subject"><value> maths </value> </property>
+ </bean>
+ 
+ <bean class="com.Rivet.Spring.Experience" name="ep">
+ <property name="experience"><value> Two </value> </property>
+ </bean>
+ 
+ 
+ <bean class="com.Rivet.Spring.Faculty"  name="g1">
+ <constructor-arg type="int" value="2"/>
+ <constructor-arg value="sonali"/>
+ <constructor-arg value="s09@gmail.com"/>
+ <constructor-arg value="s09"/>
+ <constructor-arg ref="ject"/>
+ <constructor-arg ref="ex"/>
+ </bean>
+ 
+ <bean class="com.Rivet.Spring.FacultySubject" name="ject">
+	<constructor-arg value="hindi"></constructor-arg>
+</bean>
+ 
+<bean class="com.Rivet.Spring.Experience" name="ex">
+	<constructor-arg value="five"></constructor-arg>
+</bean>
+ 
+ </beans>
+ 

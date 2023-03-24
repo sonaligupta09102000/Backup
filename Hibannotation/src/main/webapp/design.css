@@ -1,0 +1,67 @@
+@charset "ISO-8859-1";
+
+body
+{
+background-color:#c0c0c0;
+align-content: center;
+box-align: center;
+color: #c0c0c0;
+}
+h1
+{
+color:#8080c0;
+text-align:center;
+border: black;
+font-family:"Times New Roman";
+font-size:40px;
+margin: 0px;
+padding: 0px;
+}
+
+input[type=text]
+{
+	align-content: center;
+    width: 60%;
+    padding: 12px;
+    border: 1px solid rgb(168, 166, 166);
+    border-radius: 9px;
+    color: #ff0080;
+    text-align: center;
+   
+    
+}
+
+input[type=Submit]:hover {
+background-color: #0080ff;
+}
+
+input[name=id],input[name=emailId],input[name=name],input[name=password]
+{
+	align-content: center;
+    width: 60%;
+    padding: 12px;
+    border: 1px solid rgb(168, 166, 166);
+    border-radius: 9px;
+    color: red;
+    text-align: center;
+}
+
+:link {
+  color: #ff8080;
+}
+
+/* visited link */
+a:visited {
+  color:#7b4455;
+}
+
+/* mouse over link */
+a:hover {
+  color: red;
+}
+
+/* selected link */
+a:active {
+  color: yellow;
+}
+

@@ -152,7 +152,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="SimpleServlet" path="/SimpleServlet" reloadable="true" source="org.eclipse.jst.jee.server:SimpleServlet"/><Context docBase="CrudwithJsp" path="/CrudwithJsp" reloadable="true" source="org.eclipse.jst.jee.server:CrudwithJsp"/><Context docBase="HibernateCrud" path="/HibernateCrud" reloadable="true" source="org.eclipse.jst.jee.server:HibernateCrud"/></Host>
+      <Context docBase="SimpleServlet" path="/SimpleServlet" reloadable="true" source="org.eclipse.jst.jee.server:SimpleServlet"/><Context docBase="CrudwithJsp" path="/CrudwithJsp" reloadable="true" source="org.eclipse.jst.jee.server:CrudwithJsp"/><Context docBase="HibernateCrud" path="/HibernateCrud" reloadable="true" source="org.eclipse.jst.jee.server:HibernateCrud"/><Context docBase="ServletwithCrudOperation" path="/ServletwithCrudOperation" reloadable="true" source="org.eclipse.jst.jee.server:ServletwithCrudOperation"/><Context docBase="Hibannotation" path="/Hibannotation" reloadable="true" source="org.eclipse.jst.jee.server:Hibannotation"/></Host>
     </Engine>
   </Service>
 </Server>

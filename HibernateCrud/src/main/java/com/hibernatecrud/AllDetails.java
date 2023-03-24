@@ -24,12 +24,16 @@ public class AllDetails extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
+	
 
 		String category = request.getParameter("action");
 		out.println(category);
-		switch (category) {
-		case "HibInsert": {
-			out.print("hi");
+		out.print("<link rel=\"stylesheet\" href=\"/HibernateCrud/backcolor.css\" type=\"text/css\">");
+		switch (category) 
+		{
+		
+		    case "HibInsert": {
+			
 			HibEmployee hibemp = new HibEmployee();
 			String id = request.getParameter("id");
 			int Id = Integer.parseInt(id);
@@ -47,12 +51,12 @@ public class AllDetails extends HttpServlet {
 			out.print("Insert the HibEmp Successful");
 			response.sendRedirect("FormRegis.html");
 		}
-			break;
+		break;
 
 		case "GetAllUser": {
 			HibEmployee hibemp = new HibEmployee();
 			List<HibEmployee> getall = HibDetailsDao.RetrieveAllHibEmps();
-			out.print("<a href=FormRegis.html> Home </a>");
+			out.print(" <a href=FormRegis.html> <button> Home </button> </a>");
 			out.print("<table border='1' width='100%'>");
 
 			out.print(
@@ -60,16 +64,15 @@ public class AllDetails extends HttpServlet {
 
 			for (HibEmployee h : getall) {
 				out.print("<tr><td><a href='AllDetails?action=GetUserById&id=" + h.getId() + "'>" + h.getId()
-						+ "</a></td><td>" + h.getName() + "</td><td>" + h.getEmailId() + "</td><td>" + h.getPassword()
+						+ "</a></td><td><a href='AllDetails?action=GetUserById&id=" + h.getId() + "'>" + h.getName() + "</a></td><td>" + h.getEmailId() + "</td><td>" + h.getPassword()
 						+ "</td><td><a href='UpdateDetails.jsp?id=" + h.getId() + "'> Edit </a></td><td><a href='AllDetails?action=DeleteUserById&id=" + h.getId() + "'> Delete </a></td></tr>");
 
 			}
 			out.print("</table>");
 			out.print("</body></html>");
 			out.close();
-
 		}
-			break;
+		break;
 
 		case "GetUserById": {
 
@@ -79,6 +82,7 @@ public class AllDetails extends HttpServlet {
 
 			hemp = HibDetailsDao.GetSingleUsersById(Id);
 
+			
 			out.print("The Data you search are here!!!!..");
 			out.print("<table border='1' width='100%'>");
 			out.print("<tr> <th> ID</th> <th> Name </th> <th> EmailID </th> <th> Password </th> </tr>");
@@ -115,6 +119,10 @@ public class AllDetails extends HttpServlet {
 			 response.sendRedirect("AllDetails?action=GetAllUser");
 
 		    }
+		break;
+		
+		default:
+			System.exit(0);
 		}
 	}
 }

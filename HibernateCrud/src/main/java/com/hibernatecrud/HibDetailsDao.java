@@ -8,8 +8,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-
-
 public class HibDetailsDao {
 	
 	public static SessionFactory sf()
@@ -20,22 +18,18 @@ public class HibDetailsDao {
         return sfy;
 	}
 	 
-	 
-	public static void InsertHibEmps(HibEmployee hibemp) {
+	public static void InsertHibEmps(HibEmployee hibemp)
+	{
 		Session openSession = HibDetailsDao.sf().openSession();
 	    Transaction beginTransaction = openSession.beginTransaction();
 		openSession.save(hibemp);
 		beginTransaction.commit();
-		openSession.close();
-	        
+		openSession.close();      
 	}
-	
-	
 	
 	public static List<HibEmployee> RetrieveAllHibEmps()
 	{
 		List<HibEmployee> getall=new ArrayList<HibEmployee>();
-
 		Session openSession=HibDetailsDao.sf().openSession();
 		Transaction beginTransaction=openSession.beginTransaction();
 		getall=openSession.createQuery("from HibEmployee").getResultList();
@@ -43,7 +37,6 @@ public class HibDetailsDao {
 		openSession.close();
 		return getall;
 	}
-	
 	
 	public static HibEmployee GetSingleUsersById(int id)
 	{
@@ -56,7 +49,6 @@ public class HibDetailsDao {
 		return h1;
 	}
 	
-	
 	public static void DeleteById(int id)
 	{
 		HibEmployee hibemp=new HibEmployee();
@@ -66,18 +58,14 @@ public class HibDetailsDao {
 		openSession.delete(hibemp);
 		beginTransaction.commit();
 		openSession.close();
-		
 	}
 	
 	public static void UpdateUser(HibEmployee hibemp)
 	{
-		
 		Session openSession=HibDetailsDao.sf().openSession();
 		Transaction beginTransaction=openSession.beginTransaction();
 		openSession.update(hibemp);
 		beginTransaction.commit();
 		openSession.close();
-		
 	}
-	
 }

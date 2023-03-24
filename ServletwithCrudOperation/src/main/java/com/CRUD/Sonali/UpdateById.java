@@ -45,7 +45,7 @@ public class UpdateById extends HttpServlet {
 		out.print("<table border='1' width='100%'>");
 		if(!(u.getID()==0)) {
 		//out.print("<tr> <th> ID</th> <th> Name </th> <th> EmailID </th> <th> Password </th> </tr>");
-		out.print("<form action = UpdateDetails.jsp  method=post>");
+		out.print("<form action = UpdateDetails  method=post>");
 		out.print("<tr> <td> ID </td><td><input type=text name=ID  value="+ u.getID()+" readonly> </td></tr>");
 		out.print("<tr> <td> Name </td><td> <input type=text name=Name value="+u.getName()+"> </td><tr>");
 		out.print("<tr> <td> EmailID </td><td> <input type=text name=emailID value="+u.getEmailID()+"></td></tr> ");

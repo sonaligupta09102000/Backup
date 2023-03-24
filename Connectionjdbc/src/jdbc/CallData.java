@@ -126,7 +126,7 @@ public void createUser(User us, Connection conn) {
 			int n=sc.nextInt();
 			System.out.println("The ID Enter By you is:" + n);
 					
-			String query="SELECT *FROM Bank where ID=" +n;
+			String query="SELECT *FROM Bank where iD=" +n;
 			PreparedStatement stmt=conn.prepareStatement(query);
 			rs=stmt.executeQuery();
 			
@@ -135,12 +135,12 @@ public void createUser(User us, Connection conn) {
 			{
 				String Name=rs.getString("Name");
 				int Account_No=rs.getInt("Account_No");
-				int ID=rs.getInt("ID");
+				int iD=rs.getInt("iD");
 				int Balance=rs.getInt("Balance");
 				
 				System.out.println("Name:" +Name);
 				System.out.println("Account_No:" +Account_No);
-				System.out.println("ID:"+ID);
+				System.out.println("ID:"+iD);
 				System.out.println("Balance:" +Balance);
 			}else
 			{
@@ -165,7 +165,7 @@ public void createUser(User us, Connection conn) {
 		try {
 			
         
-		String query="UPDATE Bank SET Name=? Where ID=?";
+		String query="UPDATE Bank SET Name=? Where iD=?";
 		PreparedStatement stmt=conn.prepareStatement(query);
 	
 		 System.out.println("Enter the updated Name:");
@@ -187,7 +187,7 @@ public void createUser(User us, Connection conn) {
 	public void deleteUser(User us,Connection conn) {
 		try {
 		
-		String query="DELETE FROM Mem where ID=?";
+		String query="DELETE FROM Bank where iD=?";
 		
 		PreparedStatement stmt=conn.prepareStatement(query);
 		
