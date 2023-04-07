@@ -14,4 +14,6 @@
 		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
 		</list>
 	</section>
+	<section name="ExternalProjectImportWizard">
+	</section>
 </section>

@@ -14,8 +14,10 @@ public class Laptopsmain {
 		else if(str.equals("Price"))
 			return new LenovoLaptops();
 		
-		else
+		else if(str.equals("Relaiable"))
 			return new HPLaptops();
+		
+		return null;
 		 	 
 	}
 

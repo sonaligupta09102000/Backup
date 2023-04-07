@@ -22,7 +22,6 @@
  <property name="experience"><value> Two </value> </property>
  </bean>
  
- 
  <bean class="com.Rivet.Spring.Faculty"  name="g1">
  <constructor-arg type="int" value="2"/>
  <constructor-arg value="sonali"/>

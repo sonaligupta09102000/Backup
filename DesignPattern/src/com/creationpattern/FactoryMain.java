@@ -9,10 +9,17 @@ public class FactoryMain {
 		Laptopsmain lm=new Laptopsmain();
 		
 		String a;
-		System.out.println("Enter any Msg ");
+		System.out.println("Enter any Msg:  1.Performance    2.Quality      3.Price      4.Relaiable  ");
 		Scanner sc=new Scanner(System.in);
         a=sc.nextLine();
 		Laptops lp=lm.GetLaptops(a);
-		lp.LapInfo();
-	}
+		if(lp!=null)
+		{
+		  lp.LapInfo();
+	    }
+		else
+		{
+			System.out.println("Invalid Choice!!!");
+		}
+    }
 }

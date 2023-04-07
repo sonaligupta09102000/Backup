@@ -1,0 +1,32 @@
+package com.iteratorpattern;
+
+public class SongInfo {
+	
+	String songName;
+	String bandName;
+	int yearReleased;
+	
+	public SongInfo()
+	{
+		super();
+		this.songName=songName;
+		this.bandName=bandName;
+		this.yearReleased=yearReleased;
+	}
+	
+	public String getSongName()
+	{
+		return songName;
+	}
+	
+	public String getBandName()
+	{
+		return bandName;
+	}
+	
+	public int getyearReleased()
+	{
+		return yearReleased;
+	}
+
+}
