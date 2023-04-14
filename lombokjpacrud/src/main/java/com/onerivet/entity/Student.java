@@ -1,15 +1,12 @@
 package com.onerivet.entity;
 
-
-
-
-
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,13 +27,9 @@ public class Student {
 	private String lastName;
 	private String city;
 	private String password;
-	private double phoneNumber;
+	private String emailId;
+	private String phoneNumber;
+	private int age;
 	
 	
-	
-	@Override
-	public String toString() {
-		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", city=" + city
-				+ ", password=" + password + ", phoneNumber=" + phoneNumber + "]";
-	}
 }

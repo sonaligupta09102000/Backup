@@ -16,30 +16,41 @@ public interface StudentService {
 	
     public List<StudentDto> getall();
 	
-    public List<StudentDto> getbyId(int id);
+    public StudentDto getbyId(int id);
     
     public String deleteall();
     
     public String deletebyid(int id);
     
     public String updatebyid(int id, StudentDto studentdto);
-
-	
-
-	
-  
-//	public Student getbyfName(String firstName);
-//	
-//	public List<Student> getallfName();
-//	
-//	public Student getbylName(String lastName);
-//	
-//	public List<Student> getalllName();
-//	
-//	public Student getbycity(String city);
-//	
-//	public List<Student> getallcity();
-//	
-//	public List<Student> getbyphoneno(String phoneNumber);
-	
+    
+    public List<StudentDto> findall();
+    
+    public List<StudentDto> findByName(String firstName);
+    
+    public List<StudentDto> findByLname(String lastName);
+    
+    public List<StudentDto> findByCity(String city);
+    
+    public List<StudentDto> findByfnameorlname(String firstName, String lastName);
+    
+    public List<StudentDto> findbyfnameandlname(String firstName, String lastName);
+    
+    public List<StudentDto> findbyfnameorlnameorcity(String firstName, String lastName, String city);
+    
+    public List<StudentDto> findbyid(int id);
+    
+    public List<StudentDto> findallbyid(int id);
+    
+    public List<StudentDto> findbyemail(String emailId);
+    
+    public List<StudentDto> findbyage(int age,int age1);
+    
+    public List<StudentDto> findallage(int value1, int value2);
+    
+    public List<StudentDto> findinorder(String firstName);
+    
+    public List<StudentDto> findin(String city);
+    
+    public List<StudentDto> findbylike(String lastName);
 }
