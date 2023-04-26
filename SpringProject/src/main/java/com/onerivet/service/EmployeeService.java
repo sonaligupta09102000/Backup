@@ -18,5 +18,11 @@ public interface EmployeeService {
 	public String updatebyid(int id, EmployeeDto employeedto);
 	
 	public List<EmployeeDto> findbyfirstname(String firstName);
+	
+	public List<String> findall(int id);
+	
+	public List<String> getall(int id);
+	
+	
 
 }

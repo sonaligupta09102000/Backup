@@ -43,7 +43,7 @@ public class StudentImplies implements StudentService {
 	
 	@Override
 	public StudentDto getbyId(int id) {
-		//Student to DTO
+		 //Student to DTO
 		 Student stu=studentrepio.findById(id).orElseThrow(()->new Resourcenotfound("User not found by" + id ));
 		 return this.studenttostudentdto(stu);
 		 //return stu.stream().map((x)->modelMapper.map(stu,StudentDto.class)).collect(Collectors.toList());
@@ -60,7 +60,13 @@ public class StudentImplies implements StudentService {
 	
 	@Override
 	public String deletebyid(int id) {
-		studentrepio.deleteById(id);
+		Student studentDtotoStudent = this.studentDtotoStudent(this.getbyId(id));
+		studentrepio.delete(studentDtotoStudent);
+		//studentrepio.deleteById(id);
+		
+		
+		
+		
 		return "Successfully deleted by Id";
 	}
 
