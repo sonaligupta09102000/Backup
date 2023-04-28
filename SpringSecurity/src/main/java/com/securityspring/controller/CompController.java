@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.securityspring.entity.Company;
@@ -42,10 +43,12 @@ private static List<Company> comp=new ArrayList<Company>();
 	}
 	
 	@GetMapping("/getcomp")
-	public List<Company> getdetails()
+	public List<Company> getdetails(@RequestParam(value = "pageNumber",defaultValue = "2")int pageNumber, @RequestParam(value = "pageSize",defaultValue = "1")int pageSize,@RequestParam(value="sort",defaultValue = "name")String sort)
+	
 	{
-         return userService.getdetails();
-	}
+         return userService.getdetails(pageNumber,pageSize, sort);
+		}
+	
 	
 	@GetMapping("/getcomp/{id}")
 	public Optional<Company> getCompany(@PathVariable int id)

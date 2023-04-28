@@ -9,12 +9,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user")
 public class UserController {
 	
-	
-	
-    @GetMapping("/get")
-	public String display(@RequestAttribute("Name") String  name )
+    @GetMapping
+	public String display(String name)
 	{
-		return "hello" + name;
+    	
+    	System.out.println("      " +name);
+		return  """
+				{
+				  "message":"this a deskbook api"
+				}
+				""";
     	
     	
     			

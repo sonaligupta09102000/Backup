@@ -5,6 +5,10 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.securityspring.entity.Company;
@@ -32,8 +36,11 @@ public class UserImplies implements UserService {
 		return "Added Successfully";
 	}
 
-	public List<Company> getdetails() {
-		return comprepiso.findAll();
+	public List<Company> getdetails(int pageNumber, int pageSize,String sort) {
+		Pageable pageable=PageRequest.of(pageNumber, pageSize,Sort.by("name").descending());
+	Page<Company> company = comprepiso.findAll(pageable);
+	return company.getContent();
+	
 
 	}
 

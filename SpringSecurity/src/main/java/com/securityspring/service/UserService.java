@@ -11,7 +11,7 @@ public interface UserService {
 	
 	public String adddetails(Company c);
 	
-	public List<Company> getdetails();
+	public List<Company> getdetails(int pageNumber, int pageSize,String sort);
 	
 	public Optional<Company> getCompany(int id);
 	
