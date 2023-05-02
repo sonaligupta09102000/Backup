@@ -1,6 +1,7 @@
 package com.authentication.config;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -14,13 +15,23 @@ import com.authentication.entity.Users;
 
 import lombok.AllArgsConstructor;
 
-@AllArgsConstructor
+
 public class SecurityUser implements UserDetails{
 
+	
 	private Users users;
 	
+	private String name;
+	private String password;
+	private List<GrantedAuthority> roleList;
 	
-	
+	public SecurityUser(Users users) {
+		this.users=users;
+		name=users.getName();
+		password=users.getPassword();
+		//roleList=Arrays.stream(users.getAuthorities())
+	}
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		Set<Authority> authorities = users.getAuthorities();
@@ -44,36 +55,36 @@ public class SecurityUser implements UserDetails{
 
 	@Override
 	public String getPassword() {
-		return users.getPassword();
+		return password;
 	}
 
 	@Override
 	public String getUsername() {
-		return users.getName();
+		return name;
 	}
 
 	@Override
 	public boolean isAccountNonExpired() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }

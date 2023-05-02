@@ -2,6 +2,7 @@ package com.authentication.entity;
 
 import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -29,7 +30,8 @@ public class Authority {
 //	private String name;
 	private String role;
 	
-	
+//	@ManyToMany(mappedBy = "authorities", cascade = CascadeType.ALL)
+//	private Set<Users> users;
 
 
 	

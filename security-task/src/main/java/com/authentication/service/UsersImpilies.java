@@ -50,6 +50,7 @@ public class UsersImpilies implements UserService {
 	@Override
 	public List<UsersDto> getallUsers() {
 		List<Users> users = userRepisotry.findAll();
+		System.out.println(users);
 		//return users.stream().map((x)->modelmapper.map(users, UsersDto.class)).collect(Collectors.toList());
 		return users.stream().map(this::UserstoUsersDto).collect(Collectors.toList());
 	}

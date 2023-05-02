@@ -2,7 +2,9 @@ package com.authentication.entity;
 
 import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -20,7 +22,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="users")
+@Table(name="users_detail_autority")
 public class Users {
 	
 	@Id
@@ -31,8 +33,8 @@ public class Users {
 	private String emailId;
 	
 	
-	@ManyToMany
-	@JoinTable(name = "users_authority", joinColumns=@JoinColumn(name="users_id"), inverseJoinColumns = @JoinColumn(name="authorities_id"))
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name = "users_authorities", joinColumns=@JoinColumn(name="users_id"), inverseJoinColumns = @JoinColumn(name="authoritity_id"))
 	private Set<Authority> authorities;
 	
 }
