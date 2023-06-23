@@ -55,7 +55,6 @@ public class Security {
 		
 	}
 	
-	
 //	public UserDetailsBuilder userDetailsBuilder()
 //	{
 //		
@@ -74,7 +73,7 @@ public class Security {
 //		return auth;
 //		
 //	}
-//	
+	
 	@Bean
     public AuthenticationProvider authenticationProvider() {
 		DaoAuthenticationProvider authenticationProvider=new DaoAuthenticationProvider();

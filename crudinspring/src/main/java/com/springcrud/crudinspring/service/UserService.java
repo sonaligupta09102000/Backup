@@ -5,6 +5,7 @@ import java.util.List;
 
 
 import com.springcrud.crudinspring.Company;
+import com.springcrud.crudinspring.Image;
 
 public interface UserService {
 	
@@ -16,8 +17,12 @@ public interface UserService {
 	
 	public Company getCompany(int id);
 	
+	//public void getImagePath(String name,Image encodedPath);
+	
 	public String deleteCompany(int id);
 	
 	public String updateCompany(int id,Company c);
+
+	//void getImagePath(String name, Image encodedPath);
 
 }

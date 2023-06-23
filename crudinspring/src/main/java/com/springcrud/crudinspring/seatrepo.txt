@@ -1,0 +1,176 @@
+package com.onerivet.deskbook.repository;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.domain.Sort;
+
+import com.onerivet.deskbook.models.entity.Employee;
+import com.onerivet.deskbook.models.entity.SeatNumber;
+import com.onerivet.deskbook.models.entity.SeatRequest;
+
+
+@ExtendWith(MockitoExtension.class)
+class SeatRequestRepoTest {
+	
+	@Mock
+	private SeatRequestRepo seatRequestRepo;
+
+	
+	
+
+	@Test
+	void testFindByRequestStatusAndEmployeeIdAndSeatIdAndBookingDateAndDeletedDateNull() {
+
+		
+		Employee employee=new Employee();
+		employee = Employee.builder().id("ygjvb76-jhgj6-hk6fgh").emailId("xyz@gmail.com")
+				.firstName("xyz").lastName("abc").phoneNumber("7778889994").profilePictureFileName("null")
+				.profilePictureFilePath("null").modeOfWork(null).designation(null).build();
+		
+		int pending = 1;
+		String employeeId = "00763866-dc7d-429d-91f3-c8bb5c10891a";
+		SeatNumber seatId = new SeatNumber();
+		//seatId=seatId.builder().id(1).seatNumber(2).column(new ColumnDetails()).isAvailable(false).booked(false);
+		LocalDate bookingDate = LocalDate.of(2023, 6, 11);
+		
+		SeatRequest expectedSeatRequest = new SeatRequest();
+		expectedSeatRequest.setId(1);
+		expectedSeatRequest.setRequestStatus(pending);
+		expectedSeatRequest.setEmployee(employee);
+		expectedSeatRequest.setSeat(seatId);
+		expectedSeatRequest.setBookingDate(bookingDate);
+		expectedSeatRequest.setDeletedDate(null);
+		System.out.println(expectedSeatRequest);
+		when(seatRequestRepo.findByRequestStatusAndEmployeeIdAndSeatIdAndBookingDateAndDeletedDateNull(pending, employeeId, seatId, bookingDate))
+				.thenReturn(expectedSeatRequest);
+		
+		SeatRequest actualSeatRequest = seatRequestRepo.findByRequestStatusAndEmployeeIdAndSeatIdAndBookingDateAndDeletedDateNull(pending, employeeId, seatId, bookingDate);
+		System.out.println(actualSeatRequest);
+		assertEquals(expectedSeatRequest, actualSeatRequest);
+	}
+
+	@Test
+	void testGetByRequestStatusAndBookingDateAndSeatIdAndDeletedDateNull() {
+		//fail("Not yet implemented");
+		LocalDate bookingDate = LocalDate.of(2023, 6, 12);
+		int requestStatus = 1;
+		SeatNumber seatId = new SeatNumber(1);
+
+		SeatRequest seatRequest1 = new SeatRequest();
+		seatRequest1.setId(1);
+		seatRequest1.setBookingDate(bookingDate);
+		seatRequest1.setRequestStatus(requestStatus);
+		seatRequest1.setSeat(seatId);
+		seatRequest1.setReason("reason1");
+
+		SeatRequest seatRequest2 = new SeatRequest();
+		seatRequest2.setId(2);
+		seatRequest2.setBookingDate(bookingDate);
+		seatRequest2.setRequestStatus(requestStatus);
+		seatRequest2.setSeat(seatId);
+		seatRequest2.setReason("reason2");
+
+		List<SeatRequest> expectedSeatRequests = new ArrayList<>();
+		expectedSeatRequests.add(seatRequest1);
+		expectedSeatRequests.add(seatRequest2);
+		System.out.println(expectedSeatRequests);
+		when(seatRequestRepo.getByRequestStatusAndBookingDateAndSeatIdAndDeletedDateNull(1, LocalDate.of(2023, 6, 12),
+				seatId)).thenReturn(expectedSeatRequests);
+
+		List<SeatRequest> actualSeatRequests = seatRequestRepo.getByRequestStatusAndBookingDateAndSeatIdAndDeletedDateNull(
+				1, LocalDate.of(2023, 6, 12), seatId);
+
+		System.out.println(actualSeatRequests);
+		assertEquals(expectedSeatRequests, actualSeatRequests);
+	}
+
+		
+	
+
+	@Test
+	void testFindByEmployeeIdAndRequestStatusAndBookingDateAndDeletedDateNull() {
+		Employee employee = new Employee("00763866-dc7d-429d-91f3-c8bb5c10891a");
+		LocalDate bookingDate = LocalDate.of(2023, 6, 12);
+		int requestStatus = 1;
+		
+		SeatRequest seatRequest1 = new SeatRequest();
+		seatRequest1.setId(1);
+		seatRequest1.setEmployee(employee);
+		seatRequest1.setBookingDate(bookingDate);
+		seatRequest1.setRequestStatus(requestStatus);
+		SeatNumber seatNumber=new SeatNumber();
+		seatRequest1.setSeat(seatNumber);
+		seatRequest1.setReason("reason1");
+		
+		SeatRequest seatRequest2 = new SeatRequest();
+		seatRequest2.setId(2);
+		seatRequest2.setEmployee(employee);
+		seatRequest2.setBookingDate(bookingDate);
+		seatRequest2.setRequestStatus(requestStatus);
+		seatRequest2.setSeat(new SeatNumber());
+		seatRequest2.setReason("reason2");
+		
+		List<SeatRequest> expectedSeatRequests = new ArrayList<>();
+		expectedSeatRequests.add(seatRequest1);
+		expectedSeatRequests.add(seatRequest2);
+		
+		when(seatRequestRepo.findByEmployeeIdAndRequestStatusAndBookingDateAndDeletedDateNull(
+				"00763866-dc7d-429d-91f3-c8bb5c10891a", 1, LocalDate.of(2023, 6, 12)))
+		.thenReturn(expectedSeatRequests);
+		System.out.println(expectedSeatRequests);
+		
+		List<SeatRequest> actualSeatRequests = seatRequestRepo.findByEmployeeIdAndRequestStatusAndBookingDateAndDeletedDateNull(
+				"00763866-dc7d-429d-91f3-c8bb5c10891a", 1, LocalDate.of(2023, 6, 12));
+		System.out.println(actualSeatRequests);
+		assertEquals(expectedSeatRequests, actualSeatRequests);
+	}
+	
+	
+	@Test
+	void testFindByBookingDateAndRequestStatusAndDeletedDateNull() {
+		//fail("Not yet implemented");
+		LocalDate bookingDate = LocalDate.of(2023, 6, 12);
+		int requestStatus = 1;
+		Sort sort = Sort.by(Sort.Direction.ASC, "CreatedDate");
+		//Sort sort = Sort.by("id").ascending();
+
+		SeatRequest seatRequest1 = new SeatRequest();
+		seatRequest1.setId(1);
+		seatRequest1.setBookingDate(bookingDate);
+		seatRequest1.setRequestStatus(requestStatus);
+		seatRequest1.setReason("reason1");
+
+		SeatRequest seatRequest2 = new SeatRequest();
+		seatRequest2.setId(2);
+		seatRequest2.setBookingDate(bookingDate);
+		seatRequest2.setRequestStatus(requestStatus);
+		seatRequest2.setReason("reason2");
+
+		List<SeatRequest> expectedSeatRequests = new ArrayList<>();
+		expectedSeatRequests.add(seatRequest1);
+		expectedSeatRequests.add(seatRequest2);
+
+		when(seatRequestRepo.findByBookingDateAndRequestStatusAndDeletedDateNull(bookingDate, requestStatus, sort))
+				.thenReturn(expectedSeatRequests);
+		System.out.println(expectedSeatRequests);
+		List<SeatRequest> actualSeatRequests = seatRequestRepo
+				.findByBookingDateAndRequestStatusAndDeletedDateNull(bookingDate, requestStatus, sort);
+
+		assertEquals(expectedSeatRequests, actualSeatRequests);
+		System.out.println(actualSeatRequests);
+	}
+
+
+
+	}
+
+

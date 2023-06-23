@@ -1,0 +1,110 @@
+package com.onerivet.deskbook.services.impl;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Service;
+
+import com.onerivet.deskbook.models.entity.Employee;
+import com.onerivet.deskbook.models.entity.SeatRequest;
+import com.onerivet.deskbook.models.payload.EmployeeDto;
+import com.onerivet.deskbook.models.payload.SeatRequestDto;
+import com.onerivet.deskbook.repository.SeatRequestRepo;
+import com.onerivet.deskbook.services.SeatRequestService;
+
+import jakarta.transaction.Transactional;
+
+@Transactional
+@Service
+public class SeatRequestServiceImpl implements SeatRequestService {
+
+	@Autowired
+	private SeatRequestRepo seatRequestRepo;
+
+	@Autowired
+	private ModelMapper modelMapper;
+	
+	@Autowired
+	private SeatRequestDto seatRequestDto;
+
+	@Autowired
+	private SeatRequest seatRequest;
+
+	/**
+	 *
+	 */
+	@Override
+	public List<SeatRequestDto> getAllBookingRequest(EmployeeDto employee) {
+		// TODO Auto-generated method stub
+		List<SeatRequestDto> bookSeatList = seatRequestRepo.findAllBooking().stream()
+				.filter(seatRequest -> seatRequest.getEmployee().getId().equals(employee.getId()))
+				.map((seatRequest) -> this.modelMapper.map(seatRequest, SeatRequestDto.class))
+				.collect(Collectors.toList());
+		// .map((seatReqest) -> this.modelMapper.map(seatReqest, SeatRequestDto.class))
+		// .seatRequestDto.setCreatedDate(seatReqest.getCretedDate());
+
+		// .collect(Collectors.toList());
+		return bookSeatList;
+	}
+
+	/**
+	 * Assume 1 for All pending Request
+	 */
+	@Override
+	public List<SeatRequestDto> getPendingRequest(EmployeeDto employee) {
+		// TODO Auto-generated method stub
+//		List<SeatRequestDto> findPendingStatus = 
+		return this.seatRequestRepo.findByRequestStatus(1).stream()
+				.filter(seatRequest -> seatRequest.getEmployee().getId().equals(employee.getId()))
+				.map((seatRequest) -> this.modelMapper.map(seatRequest, SeatRequestDto.class))
+				.collect(Collectors.toList());
+//				.stream().map((seatRequest)->this.modelMapper.map(seatRequest, SeatRequestDto.class))
+//				.collect(Collectors.toList());
+		// return findPendingStatus;
+	}
+
+	/**
+	 * Assume 2 for Accept the request
+	 */
+
+	@Override
+	public List<SeatRequestDto> getAcceptedRequest(EmployeeDto employee) {
+		// TODO Auto-generated method stub
+		return this.seatRequestRepo.findByRequestStatus(2).stream()
+				.filter(seatRequest -> seatRequest.getEmployee().getId().equals(employee.getId()))
+				.map((seatRequest) -> this.modelMapper.map(seatRequest, SeatRequestDto.class))
+				.collect(Collectors.toList());
+//				.stream().map((seatRequest)->this.modelMapper.map(seatRequest, SeatRequestDto.class))
+//				.collect(Collectors.toList());
+	}
+
+	/**
+	 * Assume 3 for Reject the request
+	 */
+	@Override
+	public List<SeatRequestDto> getRejectedRequest(EmployeeDto employee) {
+		// TODO Auto-generated method stub
+		return this.seatRequestRepo.findByRequestStatus(3).stream()
+				.filter(seatRequest -> seatRequest.getEmployee().getId().equals(employee.getId()))
+				.map((seatRequest) -> this.modelMapper.map(seatRequest, SeatRequestDto.class))
+				.collect(Collectors.toList());
+//				.stream().map((seatRequest)->this.modelMapper.map(seatRequest, SeatRequestDto.class))
+//				.collect(Collectors.toList());
+	}
+
+	/**
+	 * Assume 4 for Cancel Request
+	 */
+	@Override
+	public List<SeatRequestDto> getCancelRequest(EmployeeDto employee) {
+		// TODO Auto-generated method stub
+		return this.seatRequestRepo.findByRequestStatus(4).stream()
+				.filter(seatRequest -> seatRequest.getEmployee().getId().equals(employee.getId()))
+				.map((seatRequest) -> this.modelMapper.map(seatRequest, SeatRequestDto.class))
+				.collect(Collectors.toList());
+//				.stream().map((seatRequest)->this.modelMapper.map(seatRequest, SeatRequestDto.class))
+//				.collect(Collectors.toList());
+	}}
